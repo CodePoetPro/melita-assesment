@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { CookieService } from "ngx-cookie-service";
+import {environment} from '../../environments/environment';
 
 export interface LoginPayload {
   email : string;
@@ -16,7 +17,7 @@ export interface LoginResponse {
 })
 
 export class AuthService {
-  baseUrl = 'https://selfcare-service.test.melita.com/interview/backend/api';
+  baseUrl = environment.baseUrl;
   constructor( private httpClient : HttpClient, private cookieService : CookieService) { }
   postLogin({email,password}: LoginPayload){
       return this.httpClient.post(`${this.baseUrl}/login`, {email,password} );
