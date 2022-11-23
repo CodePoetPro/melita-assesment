@@ -4,13 +4,13 @@ import { MatTableDataSource } from '@angular/material/table';
 import { DashboardService } from '../dashboard.service';
 
 @Component({
-  selector: 'app-home',
-  templateUrl: './home.component.html',
-  styleUrls: ['./home.component.scss']
+  selector: 'offers',
+  templateUrl: './offers.component.html',
+  styleUrls: ['./offers.component.scss']
 })
 
 
-export class HomeComponent implements OnInit {
+export class OffersComponent implements OnInit {
   displayedColumns: string[] = ['id', 'name', 'contractStartDate', 'contractEndDate'];
   dataSource = new MatTableDataSource<OfferItem>([]);
   offers: OfferItem[] = [];
