@@ -8,12 +8,19 @@ environment
   providedIn: 'root'
 })
 export class DashboardService {
+  
   baseUrl = environment.baseUrl;
   
   constructor(private httpClient : HttpClient, private authService : AuthService) { }
 
   getOffers(){
     return this.httpClient.get(`${this.baseUrl}/offers`, {headers : {
+      'Authorization' : `Bearer ${this.authService.getToken()}`
+    }})
+  }
+
+  getSubscription(id:number) {
+    return this.httpClient.get(`${this.baseUrl}/offers/${id}/subscriptions`, {headers : {
       'Authorization' : `Bearer ${this.authService.getToken()}`
     }})
   }
