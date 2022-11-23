@@ -19,7 +19,7 @@ export class AuthInterceptor implements HttpInterceptor {
         return next.handle(this.addAuthToken(request)).pipe(
             catchError(error => {
                 if (error instanceof HttpErrorResponse && error.status === 401){
-                    if(!!request.url.includes('logout')) this.authService.logout()
+                    if(!request.url.includes('logout')) this.authService.logout()
                 }
                 return throwError(() => error);
             })
