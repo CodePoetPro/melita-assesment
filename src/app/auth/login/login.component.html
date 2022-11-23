@@ -1,1 +1,44 @@
-<p>login works!</p>
+<main>
+  <div class="container">
+    <form [formGroup]="loginForm" (ngSubmit)="onSubmit()" novalidate>
+    <img class="logo" src="../../../assets/svg/logo.svg"/>
+      <mat-form-field>
+        <mat-label>Email address</mat-label>
+        <input
+          matInput
+          type="email"
+          class="form-control"
+          formControlName="email"
+          placeholder="Enter email"
+        />
+        <mat-error
+          *ngIf="loginForm.hasError('email') && !loginForm.hasError('required')"
+        >
+          Please enter a valid email address
+        </mat-error>
+        <mat-error *ngIf="loginForm.hasError('required')">
+          Email is <strong>required</strong>
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field>
+        <mat-label>Password</mat-label>
+        <input
+          matInput
+          type="password"
+          class="form-control"
+          formControlName="password"
+          placeholder="Password"
+        />
+      </mat-form-field>
+
+      <button
+        mat-stroked-button
+        type="submit"
+        [disabled]="!loginForm.valid"
+      >
+        Submit
+      </button>
+    </form>
+  </div>
+</main>
