@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { AuthService, LoginResponse } from '../auth.service';
 
 
@@ -11,7 +12,7 @@ import { AuthService, LoginResponse } from '../auth.service';
 export class LoginComponent {
   loginForm: FormGroup;
   isSubmitting = false;
-  constructor(private authService : AuthService) {
+  constructor(private authService : AuthService, private router: Router) {
     this.loginForm = new FormGroup({
       email: new FormControl('', [Validators.required, Validators.email]),
       password: new FormControl('', [Validators.required])
@@ -23,6 +24,7 @@ export class LoginComponent {
       this.isSubmitting = true;
       this.authService.postLogin(this._v()).subscribe((response:Partial<LoginResponse>)=>{
         this.authService.setToken(response.authToken!)
+        this.router.navigateByUrl('/dashboard');
         this.isSubmitting = false;
       })
     }

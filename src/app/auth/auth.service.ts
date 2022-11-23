@@ -35,6 +35,6 @@ export class AuthService {
   logout() {
     this.httpClient.get(`${this.baseUrl}/logout`).subscribe();
     this.cookieService.delete('token');
-    this.router.navigateByUrl('/');
+    this.router.navigateByUrl('/auth');
   }
 }

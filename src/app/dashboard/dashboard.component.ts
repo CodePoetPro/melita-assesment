@@ -10,9 +10,7 @@ export class DashboardComponent {
   constructor(private authService : AuthService){
 
   }
-
   themeColor  = '#00f260'
-
   logout(){
     this.authService.logout();
   }
