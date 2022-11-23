@@ -9,6 +9,7 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatExpansionModule } from '@angular/material/expansion';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatChipsModule } from '@angular/material/chips'
+import {MatButtonModule} from '@angular/material/button';
 
 
 
@@ -25,7 +26,8 @@ import { MatChipsModule } from '@angular/material/chips'
     MatSnackBarModule,
     MatExpansionModule,
     MatProgressSpinnerModule,
-    MatChipsModule
+    MatChipsModule,
+    MatButtonModule
   ]
 })
 export class DashboardModule { }
